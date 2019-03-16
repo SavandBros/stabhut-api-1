@@ -1,6 +1,6 @@
 # [StabHut API](https://stabhut.io)
 
-Host and join parties and keep shuffling sick songs.
+The management system for stabbers, the StabHut.
 
 RESTful API for [stabhut](https://github.com/AmirSavand/stabhut).
 
