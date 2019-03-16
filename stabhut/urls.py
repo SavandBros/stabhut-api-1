@@ -5,6 +5,7 @@ from rest_framework.documentation import include_docs_urls
 from rest_framework_jwt.views import obtain_jwt_token
 
 from account.views import UserViewSet
+from card.views import CardViewSet
 from column.views import ColumnViewSet
 from organization.views import OrganizationViewSet
 from project.views import ProjectViewSet
@@ -16,6 +17,7 @@ router.register('users', UserViewSet)
 router.register('organizations', OrganizationViewSet)
 router.register('projects', ProjectViewSet)
 router.register('columns', ColumnViewSet)
+router.register('cards', CardViewSet)
 
 urlpatterns = router.urls
 urlpatterns += [
