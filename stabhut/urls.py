@@ -10,12 +10,14 @@ from column.views import ColumnViewSet
 from organization.views import OrganizationViewSet
 from project.views import ProjectViewSet
 from stabhut.settings import ADMIN_URL
+from task.views import TaskViewSet
 
 router = routers.DefaultRouter()
 
 router.register('users', UserViewSet)
 router.register('organizations', OrganizationViewSet)
 router.register('projects', ProjectViewSet)
+router.register('tasks', TaskViewSet)
 router.register('columns', ColumnViewSet)
 router.register('cards', CardViewSet)
 
