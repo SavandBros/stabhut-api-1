@@ -24,7 +24,4 @@ class Card(models.Model):
         return self.content
 
     class Meta:
-        ordering = (
-            '-order',
-            '-updated',
-        )
+        ordering = ('-order', '-updated',)
