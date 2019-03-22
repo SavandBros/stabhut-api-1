@@ -6,6 +6,7 @@ from rest_framework_jwt.views import obtain_jwt_token
 
 from account.views import UserViewSet
 from card.views import CardViewSet
+from chat.views import ChatViewSet
 from column.views import ColumnViewSet
 from organization.views import OrganizationViewSet
 from project.views import ProjectViewSet
@@ -18,6 +19,7 @@ router.register('users', UserViewSet)
 router.register('organizations', OrganizationViewSet)
 router.register('projects', ProjectViewSet)
 router.register('tasks', TaskViewSet)
+router.register('chats', ChatViewSet)
 router.register('columns', ColumnViewSet)
 router.register('cards', CardViewSet)
 

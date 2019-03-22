@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'organization',
     'project',
     'task',
+    'chat',
     'column',
     'card',
 ]
