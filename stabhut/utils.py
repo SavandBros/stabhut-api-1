@@ -3,6 +3,19 @@ from rest_framework import permissions
 from rest_framework.pagination import PageNumberPagination
 
 
+class ObjectType:
+    """
+    Object types used for FKs for other models, like Label
+    More will be added.
+    """
+    CARD = 1
+
+
+OBJECT_TYPE_CHOICES = (
+    (ObjectType.CARD, 'Card'),
+)
+
+
 class StandardPagination(PageNumberPagination):
     page_size_query_param = 'limit'
 
