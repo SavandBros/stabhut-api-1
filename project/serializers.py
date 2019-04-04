@@ -1,15 +1,15 @@
 from rest_framework import serializers
 
-from organization.serializers import OrganizationSerializer
 from project.models import Project
 
 
 class ProjectSerializer(serializers.ModelSerializer):
-    organization = OrganizationSerializer()
-
     class Meta:
         model = Project
-        fields = '__all__'
+        fields = (
+            'id',
+            'name',
+        )
 
 
 class ProjectWriteSerializer(serializers.ModelSerializer):
