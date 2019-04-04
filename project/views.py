@@ -8,6 +8,7 @@ from stabhut.utils import IsOrganizationOwnerOrReadOnly
 class ProjectViewSet(viewsets.ModelViewSet):
     queryset = Project.objects.all()
     permission_classes = (IsOrganizationOwnerOrReadOnly,)
+    filterset_fields = ('organization',)
 
     def get_serializer_class(self):
         if self.action in ['create', 'update']:
