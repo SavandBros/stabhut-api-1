@@ -1,15 +1,11 @@
 from rest_framework import viewsets
 
 from card.models import Card
-from card.serializers import CardWriteSerializer, CardSerializer
+from card.serializers import CardSerializer
 from stabhut.utils import IsOrganizationOwnerOrReadOnly
 
 
 class CardViewSet(viewsets.ModelViewSet):
     queryset = Card.objects.all()
+    serializer_class = CardSerializer
     permission_classes = (IsOrganizationOwnerOrReadOnly,)
-
-    def get_serializer_class(self):
-        if self.action in ['create', 'update']:
-            return CardWriteSerializer
-        return CardSerializer
