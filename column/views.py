@@ -9,3 +9,4 @@ class ColumnViewSet(viewsets.ModelViewSet):
     queryset = Column.objects.all()
     serializer_class = ColumnSerializer
     permission_classes = (IsOrganizationOwnerOrReadOnly,)
+    filterset_fields = ('project',)
