@@ -82,6 +82,7 @@ WSGI_APPLICATION = 'stabhut.wsgi.application'
 
 REST_FRAMEWORK = {
     'TEST_REQUEST_DEFAULT_FORMAT': 'json',
+    # 'DEFAULT_PAGINATION_CLASS': 'stabhut.utils.StandardPagination',
     'TEST_REQUEST_RENDERER_CLASSES': (
         'rest_framework.renderers.MultiPartRenderer',
         'rest_framework.renderers.JSONRenderer',
