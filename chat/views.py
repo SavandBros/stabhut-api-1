@@ -8,6 +8,7 @@ from stabhut.utils import IsOrganizationOwnerOrReadOnly
 class ChatViewSet(viewsets.ModelViewSet):
     queryset = Chat.objects.all()
     permission_classes = (IsOrganizationOwnerOrReadOnly,)
+    filterset_fields = ('project',)
 
     def get_serializer_class(self):
         if self.action in ['create', 'update']:
