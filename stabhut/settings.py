@@ -60,6 +60,7 @@ ROOT_URLCONF = 'stabhut.urls'
 
 JWT_AUTH = {
     'JWT_RESPONSE_PAYLOAD_HANDLER': 'account.views.jwt_response_payload_handler',
+    'JWT_VERIFY_EXPIRATION': False,
 }
 
 TEMPLATES = [
@@ -90,6 +91,11 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_FILTER_BACKENDS': (
         'django_filters.rest_framework.DjangoFilterBackend',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
     ),
 }
 
