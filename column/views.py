@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 
 from column.models import Column
 from column.serializers import ColumnSerializer
@@ -8,5 +9,8 @@ from stabhut.utils import IsOrganizationOwnerOrReadOnly
 class ColumnViewSet(viewsets.ModelViewSet):
     queryset = Column.objects.all()
     serializer_class = ColumnSerializer
-    permission_classes = (IsOrganizationOwnerOrReadOnly,)
+    permission_classes = (IsAuthenticated, IsOrganizationOwnerOrReadOnly,)
     filterset_fields = ('project',)
+
+    def get_queryset(self):
+        return self.queryset.filter(project__organization__user=self.request.user)
