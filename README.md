@@ -1,6 +1,6 @@
 # [StabHut API](https://stabhut.io)
 
-The management system for stabbers, the StabHut.
+The project management system for stabbers, the StabHut.
 
 RESTful API for [stabhut](https://github.com/AmirSavand/stabhut).
 
