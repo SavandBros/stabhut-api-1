@@ -1,16 +1,11 @@
 from django.contrib.auth.models import User
-from rest_framework import mixins
-from rest_framework.viewsets import GenericViewSet
+from rest_framework.viewsets import ModelViewSet
 
 from account.serializers import UserSerializer
 from stabhut.utils import StandardPagination, IsOwnerOrReadOnly
 
 
-class UserViewSet(mixins.CreateModelMixin,
-                  mixins.RetrieveModelMixin,
-                  mixins.UpdateModelMixin,
-                  mixins.DestroyModelMixin,
-                  GenericViewSet):
+class UserViewSet(ModelViewSet):
     queryset = User.objects.all()
     pagination_class = StandardPagination
     serializer_class = UserSerializer
