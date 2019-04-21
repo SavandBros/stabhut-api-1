@@ -1,6 +1,8 @@
 from rest_framework import serializers
 
+from account.serializers import UserSerializer
 from card.models import Card
+from column.serializers import ColumnSerializer
 
 
 class CardSerializer(serializers.ModelSerializer):
@@ -15,3 +17,8 @@ class CardSerializer(serializers.ModelSerializer):
             'created',
             'updated',
         )
+
+
+class CardRetrieveSerializer(CardSerializer):
+    column = ColumnSerializer()
+    assignee = UserSerializer()
