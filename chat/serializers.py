@@ -6,7 +6,12 @@ from chat.models import Chat
 class ChatSerializer(serializers.ModelSerializer):
     class Meta:
         model = Chat
-        fields = '__all__'
+        fields = (
+            'id',
+            'user',
+            'content',
+            'created',
+        )
 
 
 class ChatWriteSerializer(serializers.ModelSerializer):

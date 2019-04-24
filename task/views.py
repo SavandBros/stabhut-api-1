@@ -9,6 +9,7 @@ from task.serializers import TaskSerializer, TaskWriteSerializer
 class TaskViewSet(viewsets.ModelViewSet):
     queryset = Task.objects.all()
     permission_classes = (IsAuthenticated, IsOrganizationOwnerOrReadOnly,)
+    filterset_fields = ('project',)
 
     def get_queryset(self):
         return self.queryset.filter(project__organization__user=self.request.user)
