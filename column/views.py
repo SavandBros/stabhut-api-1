@@ -2,7 +2,7 @@ from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 
 from column.models import Column
-from column.serializers import ColumnSerializer
+from column.serializers import ColumnSerializer, ColumnRetrieveSerializer
 from stabhut.utils import IsOrganizationOwnerOrReadOnly
 
 
@@ -14,3 +14,8 @@ class ColumnViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         return self.queryset.filter(project__organization__user=self.request.user)
+
+    def get_serializer_class(self):
+        if self.action is 'retrieve':
+            return ColumnRetrieveSerializer
+        return self.serializer_class

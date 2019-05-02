@@ -14,3 +14,7 @@ class ColumnSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             'project': {'write_only': True},
         }
+
+
+class ColumnRetrieveSerializer(ColumnSerializer):
+    project = ProjectSerializer()
