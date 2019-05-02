@@ -10,7 +10,7 @@ class ColumnViewSet(viewsets.ModelViewSet):
     queryset = Column.objects.all()
     serializer_class = ColumnSerializer
     permission_classes = (IsAuthenticated, IsOrganizationOwnerOrReadOnly,)
-    filterset_fields = ('project',)
+    filterset_fields = ('project', 'project__organization',)
 
     def get_queryset(self):
         return self.queryset.filter(project__organization__user=self.request.user)
