@@ -8,14 +8,6 @@ class ProjectSerializer(serializers.ModelSerializer):
         model = Project
         fields = (
             'id',
-            'name',
-        )
-
-
-class ProjectWriteSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Project
-        fields = (
             'organization',
             'name',
         )
