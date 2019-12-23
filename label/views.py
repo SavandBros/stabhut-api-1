@@ -23,3 +23,4 @@ class ObjectLabelViewSet(viewsets.ModelViewSet):
     queryset = ObjectLabel.objects.all()
     permission_classes = (IsOrganizationOwnerOrReadOnly,)
     serializer_class = ObjectLabelSerializer
+    filterset_fields = ('for_type', 'for_object', 'label__organization')

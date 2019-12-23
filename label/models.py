@@ -16,7 +16,7 @@ class Label(models.Model):
 class ObjectLabel(models.Model):
     label = models.ForeignKey(Label, on_delete=models.CASCADE)
     for_type = models.PositiveIntegerField(choices=OBJECT_TYPE_CHOICES, db_index=True)
-    for_object = models.TextField(db_index=True)
+    for_object = models.PositiveIntegerField(db_index=True)
 
     @property
     def organization(self):
