@@ -10,4 +10,5 @@ class ProjectSerializer(serializers.ModelSerializer):
             'id',
             'organization',
             'name',
+            'order',
         )
