@@ -6,6 +6,7 @@ from project.models import Project
 class Column(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
+    order = models.IntegerField(default=0)
 
     @property
     def organization(self):
@@ -13,3 +14,6 @@ class Column(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        ordering = ('order',)
