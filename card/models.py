@@ -8,7 +8,7 @@ class Card(models.Model):
     column = models.ForeignKey(Column, on_delete=models.CASCADE)
     content = models.TextField()
     assignee = models.ForeignKey(User, blank=True, null=True, default=None, on_delete=models.SET_NULL)
-    order = models.IntegerField(default=0)
+    order = models.FloatField(default=0)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -24,4 +24,4 @@ class Card(models.Model):
         return self.content
 
     class Meta:
-        ordering = ('-order', '-updated',)
+        ordering = ('order', 'updated',)
