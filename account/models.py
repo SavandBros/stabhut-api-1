@@ -5,9 +5,6 @@ from django.dispatch import receiver
 
 
 class Account(models.Model):
-    """
-    Extra user fields.
-    """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):
