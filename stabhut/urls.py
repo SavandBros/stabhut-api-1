@@ -16,15 +16,15 @@ from task.views import TaskViewSet
 
 router = routers.DefaultRouter()
 
-router.register('users', UserViewSet)
-router.register('organizations', OrganizationViewSet)
-router.register('projects', ProjectViewSet)
-router.register('labels', LabelViewSet)
-router.register('object-labels', ObjectLabelViewSet)
-router.register('tasks', TaskViewSet)
-router.register('chats', ChatViewSet)
-router.register('columns', ColumnViewSet)
-router.register('cards', CardViewSet)
+router.register('user', UserViewSet)
+router.register('organization', OrganizationViewSet)
+router.register('project', ProjectViewSet)
+router.register('label', LabelViewSet)
+router.register('object-label', ObjectLabelViewSet)
+router.register('task', TaskViewSet)
+router.register('chat', ChatViewSet)
+router.register('column', ColumnViewSet)
+router.register('card', CardViewSet)
 
 urlpatterns = router.urls
 urlpatterns += [
