@@ -8,7 +8,7 @@ from account.views import UserViewSet
 from card.views import CardViewSet
 from chat.views import ChatViewSet
 from column.views import ColumnViewSet
-from label.views import LabelViewSet, ObjectLabelViewSet
+from label.views import LabelViewSet, LabelObjectViewSet
 from organization.views import OrganizationViewSet
 from project.views import ProjectViewSet
 from stabhut.settings import ADMIN_URL
@@ -20,7 +20,7 @@ router.register('user', UserViewSet)
 router.register('organization', OrganizationViewSet)
 router.register('project', ProjectViewSet)
 router.register('label', LabelViewSet)
-router.register('object-label', ObjectLabelViewSet)
+router.register('label-object', LabelObjectViewSet)
 router.register('task', TaskViewSet)
 router.register('chat', ChatViewSet)
 router.register('column', ColumnViewSet)

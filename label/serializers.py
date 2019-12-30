@@ -1,24 +1,19 @@
 from rest_framework import serializers
 
-from label.models import Label, ObjectLabel
-from organization.serializers import OrganizationSerializer
+from label.models import Label, LabelObject
 
 
 class LabelSerializer(serializers.ModelSerializer):
-    organization = OrganizationSerializer()
-
     class Meta:
         model = Label
-        fields = '__all__'
+        fields = (
+            'id',
+            'name',
+            'color',
+        )
 
 
-class LabelWriteSerializer(serializers.ModelSerializer):
+class LabelObjectSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Label
-        fields = '__all__'
-
-
-class ObjectLabelSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = ObjectLabel
+        model = LabelObject
         fields = '__all__'
