@@ -11,7 +11,6 @@ class LabelViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated, IsOrganizationOwnerOrReadOnly,)
     serializer_class = LabelSerializer
     filter_fields = ('organization',)
-    lookup_field = 'name'
 
     def get_queryset(self):
         return self.queryset.filter(organization__user=self.request.user)
