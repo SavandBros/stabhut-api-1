@@ -6,11 +6,10 @@ from label.models import Label, LabelObject
 class LabelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Label
-        fields = (
-            'id',
-            'name',
-            'color',
-        )
+        fields = '__all__'
+        extra_kwargs = {
+            'organization': {'write_only': True},
+        }
 
 
 class LabelObjectSerializer(serializers.ModelSerializer):

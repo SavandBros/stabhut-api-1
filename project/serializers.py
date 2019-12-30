@@ -6,8 +6,7 @@ from project.models import Project
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
-        fields = (
-            'id',
-            'name',
-            'order',
-        )
+        fields = '__all__'
+        extra_kwargs = {
+            'organization': {'write_only': True},
+        }

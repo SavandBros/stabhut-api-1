@@ -7,7 +7,7 @@ from organization.models import Organization
 class Label(models.Model):
     organization = models.ForeignKey(Organization, on_delete=models.CASCADE)
     name = models.CharField(max_length=50, unique=True)
-    color = models.CharField(max_length=25)
+    color = models.CharField(max_length=25, blank=True, null=True)
 
     def __str__(self):
         return self.name
