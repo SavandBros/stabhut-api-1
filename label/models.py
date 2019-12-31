@@ -27,11 +27,11 @@ class LabelObject(models.Model):
 
     @property
     def to_object(self) -> Card:
-        if self.kind == LabelObject.Kind.USER:
-            return Card.objects.get(username=self.to)
+        if self.kind == LabelObject.Kind.CARD:
+            return Card.objects.get(pk=self.to)
 
     def __str__(self):
-        return '[{kind}] {to_object} is labeled with {label}'.format(
+        return '{kind} named {to_object} is labeled with {label}'.format(
             kind=self.get_kind_display(),
             to_object=self.to_object,
             label=self.label,
