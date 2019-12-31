@@ -6,8 +6,7 @@ from column.models import Column
 class ColumnSerializer(serializers.ModelSerializer):
     class Meta:
         model = Column
-        fields = (
-            'id',
-            'name',
-            'order'
-        )
+        fields = '__all__'
+        extra_kwargs = {
+            'project': {'write_only': True},
+        }
