@@ -16,3 +16,12 @@ class LabelObjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = LabelObject
         fields = '__all__'
+
+
+class LabelObjectMinimalSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LabelObject
+        fields = (
+            'id',
+            'label',
+        )
