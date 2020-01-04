@@ -9,6 +9,7 @@ from card.views import CardViewSet
 from chat.views import ChatViewSet
 from column.views import ColumnViewSet
 from label.views import LabelViewSet, LabelObjectViewSet
+from milestone.views import MilestoneViewSet
 from organization.views import OrganizationViewSet
 from project.views import ProjectViewSet
 from stabhut.settings import ADMIN_URL
@@ -18,6 +19,7 @@ router = routers.DefaultRouter()
 
 router.register('user', UserViewSet)
 router.register('organization', OrganizationViewSet)
+router.register('milestone', MilestoneViewSet)
 router.register('project', ProjectViewSet)
 router.register('label', LabelViewSet)
 router.register('label-object', LabelObjectViewSet)

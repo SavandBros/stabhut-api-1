@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'django_filters',
     'account',
     'organization',
+    'milestone',
     'project',
     'label',
     'task',
