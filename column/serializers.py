@@ -7,6 +7,3 @@ class ColumnSerializer(serializers.ModelSerializer):
     class Meta:
         model = Column
         fields = '__all__'
-        extra_kwargs = {
-            'project': {'write_only': True},
-        }
