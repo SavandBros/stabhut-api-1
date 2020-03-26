@@ -1,11 +1,11 @@
-from typing import List
+from rest_framework import serializers
 
 from rest_framework import serializers
 
 from card.models import Card
 from column.serializers import ColumnSerializer
 from label.models import LabelObject
-from label.serializers import LabelObjectSerializer, LabelObjectMinimalSerializer
+from label.serializers import LabelObjectMinimalSerializer
 
 
 class CardSerializer(serializers.ModelSerializer):
@@ -18,6 +18,9 @@ class CardSerializer(serializers.ModelSerializer):
             'column',
             'content',
             'assignee',
+            'milestone',
+            'points',
+            'points_estimate',
             'order',
             'created',
             'updated',

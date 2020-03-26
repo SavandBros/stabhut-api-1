@@ -9,4 +9,4 @@ class MilestoneViewSet(ModelViewSet):
     queryset = Milestone.objects.all()
     serializer_class = MilestoneSerializer
     permission_classes = (IsOrganizationOwnerOrReadOnly,)
-    filterset_fields = ('organization', 'project')
+    filterset_fields = ('project', 'closed',)
