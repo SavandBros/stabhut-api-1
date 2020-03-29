@@ -1,7 +1,5 @@
 from rest_framework import serializers
 
-from rest_framework import serializers
-
 from card.models import Card
 from column.serializers import ColumnSerializer
 from label.models import LabelObject
@@ -18,6 +16,8 @@ class CardSerializer(serializers.ModelSerializer):
             'column',
             'content',
             'assignee',
+            'epic',
+            'is_epic',
             'milestone',
             'points',
             'points_estimate',

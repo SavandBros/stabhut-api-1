@@ -10,12 +10,12 @@ class CardViewSet(viewsets.ModelViewSet):
     queryset = Card.objects.all()
     serializer_class = CardSerializer
     permission_classes = (IsAuthenticated, IsOrganizationOwnerOrReadOnly,)
-    filterset_fields = ('column', 'column__project', 'milestone',)
+    filterset_fields = ('column', 'column__project', 'milestone', 'epic', 'is_epic')
 
     def get_queryset(self):
         return self.queryset.filter(column__project__organization__user=self.request.user)
 
     def get_serializer_class(self):
-        if self.action is 'retrieve':
+        if self.action == 'retrieve':
             return CardRetrieveSerializer
         return self.serializer_class

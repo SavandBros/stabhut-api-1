@@ -9,6 +9,8 @@ class Card(models.Model):
     column = models.ForeignKey(Column, on_delete=models.CASCADE)
     content = models.TextField()
     assignee = models.ForeignKey(User, blank=True, null=True, default=None, on_delete=models.SET_NULL)
+    epic = models.ForeignKey('Card', blank=True, null=True, default=None, on_delete=models.SET_NULL)
+    is_epic = models.BooleanField(default=False)
     milestone = models.ForeignKey(Milestone, blank=True, null=True, default=None, on_delete=models.SET_NULL)
     points = models.FloatField(blank=True, null=True, default=None)
     points_estimate = models.FloatField(blank=True, null=True, default=None)
