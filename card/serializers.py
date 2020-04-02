@@ -13,6 +13,7 @@ class CardSerializer(serializers.ModelSerializer):
         model = Card
         fields = (
             'id',
+            'title',
             'column',
             'content',
             'assignee',

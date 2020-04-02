@@ -7,7 +7,8 @@ from milestone.models import Milestone
 
 class Card(models.Model):
     column = models.ForeignKey(Column, on_delete=models.CASCADE)
-    content = models.TextField()
+    title = models.CharField(max_length=100)
+    content = models.TextField(blank=True, null=True)
     assignee = models.ForeignKey(User, blank=True, null=True, default=None, on_delete=models.SET_NULL)
     epic = models.ForeignKey('Card', blank=True, null=True, default=None, on_delete=models.SET_NULL)
     is_epic = models.BooleanField(default=False)
