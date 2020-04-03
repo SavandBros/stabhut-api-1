@@ -7,10 +7,10 @@ class ChatSerializer(serializers.ModelSerializer):
     class Meta:
         model = Chat
         fields = (
-            'id',
-            'user',
-            'content',
-            'created',
+            "id",
+            "user",
+            "content",
+            "created",
         )
 
 
@@ -18,10 +18,10 @@ class ChatWriteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Chat
         fields = (
-            'project',
-            'content',
+            "project",
+            "content",
         )
 
     def create(self, validated_data):
-        validated_data['user'] = self.context['request'].user
+        validated_data["user"] = self.context["request"].user
         return super().create(validated_data)

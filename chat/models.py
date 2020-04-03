@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-from project.models import Project
+from stabber.models import Project
 
 
 class Chat(models.Model):
@@ -15,7 +15,7 @@ class Chat(models.Model):
         return self.project.organization
 
     def __str__(self):
-        return '{user}: {content}'.format(user=self.user, content=self.content)
+        return "{user}: {content}".format(user=self.user, content=self.content)
 
     class Meta:
-        ordering = ('-id',)
+        ordering = ("-id",)
