@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from account.serializers import UserSerializer
-from stabber.models import Card, Column, Label, LabelObject, Milestone, Organization, Project, Task
+from stabber.models import Card, Column, Label, LabelObject, Milestone, Organization, Project, Task, Chat
 
 
 class CardSerializer(serializers.ModelSerializer):
@@ -109,3 +109,27 @@ class TaskWriteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
         fields = "__all__"
+
+
+class ChatSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Chat
+        fields = (
+            "id",
+            "user",
+            "content",
+            "created",
+        )
+
+
+class ChatWriteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Chat
+        fields = (
+            "project",
+            "content",
+        )
+
+    def create(self, validated_data):
+        validated_data["user"] = self.context["request"].user
+        return super().create(validated_data)
