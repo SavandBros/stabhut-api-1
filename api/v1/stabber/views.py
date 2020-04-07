@@ -12,9 +12,11 @@ from api.v1.stabber.serializers import (
     ProjectSerializer,
     TaskSerializer,
     TaskWriteSerializer,
+    ChatWriteSerializer,
+    ChatSerializer,
 )
 from api.v1.utils import IsOrganizationOwnerOrReadOnly, IsOwnerOrReadOnly
-from stabber.models import Card, Column, Label, LabelObject, Milestone, Organization, Project, Task
+from stabber.models import Card, Column, Label, LabelObject, Milestone, Organization, Project, Task, Chat
 
 
 class MilestoneViewSet(viewsets.ModelViewSet):
@@ -118,3 +120,20 @@ class TaskViewSet(viewsets.ModelViewSet):
         if self.action in ["create", "update"]:
             return TaskWriteSerializer
         return TaskSerializer
+
+
+class ChatViewSet(viewsets.ModelViewSet):
+    queryset = Chat.objects.all()
+    permission_classes = (
+        IsAuthenticated,
+        IsOrganizationOwnerOrReadOnly,
+    )
+    filterset_fields = ("project",)
+
+    def get_queryset(self):
+        return self.queryset.filter(project__organization__user=self.request.user)
+
+    def get_serializer_class(self):
+        if self.action in ["create", "update"]:
+            return ChatWriteSerializer
+        return ChatSerializer

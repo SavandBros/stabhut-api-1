@@ -12,8 +12,8 @@ from api.v1.stabber.views import (
     OrganizationViewSet,
     ProjectViewSet,
     TaskViewSet,
+    ChatViewSet,
 )
-from chat.views import ChatViewSet
 
 
 router = routers.DefaultRouter()
