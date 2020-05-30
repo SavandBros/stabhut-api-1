@@ -2,7 +2,6 @@ from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 
 from api.v1.stabber.serializers import (
-    CardRetrieveSerializer,
     CardSerializer,
     ColumnSerializer,
     LabelObjectSerializer,
@@ -40,11 +39,6 @@ class CardViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         return self.queryset.filter(column__project__organization__user=self.request.user)
-
-    def get_serializer_class(self):
-        if self.action == "retrieve":
-            return CardRetrieveSerializer
-        return self.serializer_class
 
 
 class ColumnViewSet(viewsets.ModelViewSet):

@@ -40,10 +40,6 @@ class ColumnSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class CardRetrieveSerializer(CardSerializer):
-    column = ColumnSerializer()
-
-
 class LabelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Label
